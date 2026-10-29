@@ -1,0 +1,39 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "automator-octopus-energy",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-08-03",
+	"compatibility_flags": ["nodejs_compat"],
+
+	// Non-sensitive config
+	"vars": {
+		"AWS_REGION": "eu-west-1"
+	},
+
+	// KV namespace for deduplication — create your own:
+	//   npx wrangler kv namespace create JOINED_SESSIONS
+	"kv_namespaces": [
+		{
+			"binding": "JOINED_SESSIONS",
+			"id": "bd4635ad23984d74a45c6c0fcb7fb508"
+		}
+	],
+
+	// Secrets (set via `npx wrangler secret put`):
+	//   OCTOPUS_API_KEY       — your Octopus Energy API key
+	//   ACCOUNT_NUMBER        — your Octopus account number (e.g. A-XXXXXXXX)
+	//   EMAIL_FROM            — sender address for notification emails
+	//   EMAIL_TO              — recipient for notification emails
+	//   AWS_ACCESS_KEY_ID     — (optional) AWS SES access key for email
+	//   AWS_SECRET_ACCESS_KEY — (optional) AWS SES secret key
+
+	// Cron trigger: runs every hour
+	"triggers": {
+		"crons": ["0 * * * *"]
+	},
+
+	"observability": {
+		"enabled": true,
+		"head_sampling_rate": 1
+	}
+}

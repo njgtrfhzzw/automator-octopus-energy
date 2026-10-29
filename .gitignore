@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.wrangler/
+worker-startup.cpuprofile
+*.bundle
+*.js.map
+.DS_Store

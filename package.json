@@ -1,0 +1,20 @@
+{
+  "name": "automator-octopus-energy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "types": "wrangler types",
+    "check": "wrangler check startup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.118.0"
+  }
+}
